@@ -16,4 +16,13 @@ console.log (priceTicket + ' Euro')
 
 
 //Sconto per minorenni//
- 
+ if (userAge < 18){
+    const priceTicketDiscountMinor = (priceTicket/100)*20;
+    const finalPriceTicketMinor = (priceTicket - priceTicketDiscountMinor);
+    console.log (finalPriceTicketMinor);
+ }
+else if (userAge > 65){
+    const priceTicketDiscountOldAge = (priceTicket/100)*40;
+    const finalPriceTicketOldAge = (priceTicket - priceTicketDiscountOldAge);
+    console.log (finalPriceTicketOldAge);
+}

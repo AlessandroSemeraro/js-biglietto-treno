@@ -15,7 +15,7 @@ const priceTicket = (distanceKm * priceForKm);
 console.log (priceTicket + ' Euro') 
 
 
-//Sconto per minorenni//
+//Sconto per minorenni e over65//
  if (userAge < 18){
     const priceTicketDiscountMinor = (priceTicket/100)*20;
     const finalPriceTicketMinor = (priceTicket - priceTicketDiscountMinor);

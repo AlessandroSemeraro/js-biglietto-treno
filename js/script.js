@@ -1,28 +1,40 @@
-//Distanza in km//
-const distanceKm=parseInt(prompt('Inserisci la distanza che vuoi percorrere in Kilometri'));
-console.log(distanceKm);
+//KM DA PERCORRERE//
+const passengerKm = parseInt (prompt('Inserire numero di kilomentri da percorrere'));
+console.log (passengerKm + ' km');
 
-//Età viaggiatore//
-const userAge=parseInt(prompt('Inserisci la tua età'));
-console.log(userAge)
+//ETA' PASSEGGERO//
+const passengerAge = parseInt (prompt('Inserire età passeggero'))
+console.log (passengerAge + ' anni');
 
-//Valore viaggio//
-let totalPrice = 0
+//PREZZO IN EURO PER KILOMETRO//
+const priceForKm = 0.21;
 
-//Prezzo per km//
-const priceForKm = 0.21 
-const priceTicket = (distanceKm * priceForKm);
-console.log (priceTicket + ' Euro') 
+//PREZZO BIGLIETTO SENZA SCONTO//
+const priceTicket = (priceForKm * passengerKm);
 
-
-//Sconto per minorenni e over65//
- if (userAge < 18){
-    const priceTicketDiscountMinor = (priceTicket/100)*20;
-    const finalPriceTicketMinor = (priceTicket - priceTicketDiscountMinor);
-    console.log (finalPriceTicketMinor);
- }
-else if (userAge > 65){
-    const priceTicketDiscountOldAge = (priceTicket/100)*40;
-    const finalPriceTicketOldAge = (priceTicket - priceTicketDiscountOldAge);
-    console.log (finalPriceTicketOldAge);
+//PASSEGGERO CON MENO DI 18 ANNI//
+if (passengerAge < 18) {
+    //SCONTO PER MINORI DI 18 ANNI//
+    const discountPriceMinor = (( priceTicket * 20) /100) ;
+    //PREZZO FINALE BIGLIETTO (per minori) = ( PREZZO DEL BIGLIETTO NO SCONTO  -  SCONTO PER MINORI DI 18 ANNI)ARROTONDAMENTO A DUE DECIMALI//
+    const priceFinalTicket = ((priceTicket - discountPriceMinor).toFixed(2));
+    console.log(priceFinalTicket + ' Euro');
+    document.getElementById('output').innerHTML = 'il prezzo del biglietto è di  \u20AC ' + priceFinalTicket;
 }
+//PASSEGGERO OVER 65//
+else if (passengerAge > 65) {
+    //SCONTO OVER 65//
+    const discountPriceOlder = (( priceTicket * 40) /100) ;
+    //PREZZO FINALE BIGLIETTO (per over 65) = ( PREZZO DEL BIGLIETTO NO SCONTO  -  SCONTO OVER 65)ARROTONDAMENTO A DUE DECIMALI//
+    const priceFinalTicket = ((priceTicket - discountPriceOlder).toFixed(2));
+    console.log(priceFinalTicket + ' Euro');
+    document.getElementById('output').innerHTML = 'il prezzo del biglietto è di  \u20AC ' + priceFinalTicket;
+}
+//QUALSIASI ALTRO PASSEGGERO//
+else {
+    //PREZZO FINALE BIGLIETTO PER PASSEGGERI TRA I 18 E I 65 ANNI E ARROTONDAMENTO A DUE DECIMALI//
+    const priceFinalTicket = ((priceForKm * passengerKm).toFixed(2));
+    console.log(priceFinalTicket + ' Euro');
+    document.getElementById('output').innerHTML = 'il prezzo del biglietto è di  \u20AC ' + priceFinalTicket;
+}
+

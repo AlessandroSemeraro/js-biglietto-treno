@@ -22,7 +22,7 @@ if (passengerAge < 18) {
     document.getElementById('output').innerHTML = 'il prezzo del biglietto è di  \u20AC ' + priceFinalTicket;
 }
 //PASSEGGERO OVER 65//
-else if (passengerAge > 65) {
+else if (passengerAge >= 64) {
     //SCONTO OVER 65//
     const discountPriceOlder = (( priceTicket * 40) /100) ;
     //PREZZO FINALE BIGLIETTO (per over 65) = ( PREZZO DEL BIGLIETTO NO SCONTO  -  SCONTO OVER 65)ARROTONDAMENTO A DUE DECIMALI//
